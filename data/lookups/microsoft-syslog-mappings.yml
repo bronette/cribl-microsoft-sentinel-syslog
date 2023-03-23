@@ -1,0 +1,3 @@
+size: 244
+description: Maps common syslog to the Microsoft Sentinel native Syslog table.
+rows: 11

@@ -1,0 +1,1 @@
+{"version":"0.0.1","tags":{"streamtags":["Microsoft","Sentinel","Syslog"],"dataType":["logs"],"useCase":["routing"]},"displayName":"microsoft-sentinel-syslog","minLogStreamVersion":"4.0.4","description":"Converts a _raw syslog message into the Microsoft Sentinel native Syslog table.","author":"Kevin Brunette","name":"microsoft-sentinel-syslog"}

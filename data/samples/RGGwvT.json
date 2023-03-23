@@ -1,0 +1,1 @@
+[{"_raw":"dhcpd3: DHCPACK on 192.168.2.129 to 50:1e:2d:3e:8d:7e (cinema800-501e2d3e8d7e) via eth2","host":"mdonnelly-router","severityName":"info","facilityName":"local2","_time":1637281980,"index":"firewall","sourcetype":"ubiquiti","source":"syslog:in_syslog:udp","cribl_pipe":"CriblSyslogPreProcessing","cribl_breaker":["noBreak1MB","noBreak1MB"]}]

@@ -1,0 +1,12 @@
+originalSysLogFieldName,SentinelSyslogFieldName
+host,Computer
+facilityName,Facility
+hostIP,HostIP
+hostName,Host
+processId,ProcessID
+processName,ProcessName
+severityName,SeverityLevel
+source,SourceSystem
+_raw,SyslogMessage
+sourcetype,ProcessName
+host,HostName

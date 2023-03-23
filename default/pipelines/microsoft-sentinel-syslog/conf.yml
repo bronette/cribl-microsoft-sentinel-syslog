@@ -1,0 +1,45 @@
+output: default
+streamtags: []
+groups: {}
+asyncFuncTimeout: 1000
+functions:
+  - id: rename
+    filter: "true"
+    disabled: null
+    conf:
+      wildcardDepth: 5
+      renameExpr: "C.Lookup('microsoft-syslog-mappings.csv','originalSysLogFieldName'\
+        ).match(name) ?
+        C.Lookup('microsoft-syslog-mappings.csv','originalSysLogFieldName').mat\
+        ch(name,'SentinelSyslogFieldName') : name"
+      baseFields: []
+  - id: eval
+    filter: "true"
+    disabled: null
+    conf:
+      add:
+        - name: TimeGenerated
+          value: C.Time.strftime(new Date(),"%Y-%m-%dT%H:%M:%S.%LZ")
+        - name: EventTime
+          value: C.Time.strftime(_time,"%Y-%m-%dT%H:%M:%S.%LZ")
+        - name: Type
+          value: '"Syslog"'
+        - disabled: false
+          name: SourceSystem
+          value: '"Linux"'
+      remove:
+        - cribl_breaker*
+        - _time
+        - message
+        - severity
+        - facility
+        - cribl_pipe
+  - id: regex_extract
+    filter: "true"
+    disabled: null
+    conf:
+      source: " SyslogMessage"
+      iterations: 100
+      overwrite: false
+      regex: /(?<HostIP>(?<!\d)(?:(?:[01]?\d\d?|2[0-4]\d|25[0-5])\.){3}(?:[01]?\d\d?|2[0-4]\d|25[0-5])(?!\d))/
+description: Converts a Syslog message into the Microsoft Sentinel native Syslog table.
